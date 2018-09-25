@@ -12,7 +12,7 @@ import org.junit.Test;
 public class StringUtils {
 	
 	/**
-	 * 去掉所有的空格 包括首尾
+	 *   去掉所有的空格 包括首尾
 	 * @param string 
 	 * @return String
 	 */
@@ -25,12 +25,25 @@ public class StringUtils {
 	}
 	
 	/**
-	 * 去掉单引号
+	 *   去掉单引号
 	 * @param string
 	 * @return String
 	 */
 	public static String trimSingleQuotes(String string) {
 		String regxSpace = "\\'"; //匹配空格
+		Pattern pattern = Pattern.compile(regxSpace);
+		Matcher matcher = pattern.matcher(string);
+		String string2 = matcher.replaceAll("");
+		return string2;
+	}
+	
+	/**
+	 *    去掉双引号
+	 * @param string
+	 * @return
+	 */
+	public static String trimDoubleQuotes(String string) {
+		String regxSpace = "\""; //匹配空格
 		Pattern pattern = Pattern.compile(regxSpace);
 		Matcher matcher = pattern.matcher(string);
 		String string2 = matcher.replaceAll("");
